@@ -1,7 +1,11 @@
 import { useApiResource } from '../api';
 
 function Leaderboard() {
-  const { items: leaderboard, apiUrl, loading, error } = useApiResource('leaderboard');
+  const apiEndpoint = import.meta.env.VITE_CODESPACE_NAME
+    ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`
+    : 'http://localhost:8000/api/leaderboard/';
+
+  const { items: leaderboard, apiUrl, loading, error } = useApiResource(apiEndpoint, 'leaderboard');
 
   return (
     <section className="page">

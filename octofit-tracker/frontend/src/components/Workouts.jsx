@@ -1,8 +1,11 @@
 import { useApiResource } from '../api';
 
 function Workouts() {
-  const { items: workouts, apiUrl, loading, error } = useApiResource('workouts');
+  const apiEndpoint = import.meta.env.VITE_CODESPACE_NAME
+    ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`
+    : 'http://localhost:8000/api/workouts/';
 
+  const { items: workouts, apiUrl, loading, error } = useApiResource(apiEndpoint, 'workouts');
   return (
     <section className="page">
       <h2>Workouts</h2>

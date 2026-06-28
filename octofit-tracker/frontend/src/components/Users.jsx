@@ -1,7 +1,11 @@
 import { useApiResource } from '../api';
 
 function Users() {
-  const { items: users, apiUrl, loading, error } = useApiResource('users');
+  const apiEndpoint = import.meta.env.VITE_CODESPACE_NAME
+    ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users/`
+    : 'http://localhost:8000/api/users/';
+
+  const { items: users, apiUrl, loading, error } = useApiResource(apiEndpoint, 'users');
 
   return (
     <section className="page">

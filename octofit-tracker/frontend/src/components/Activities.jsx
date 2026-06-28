@@ -1,7 +1,11 @@
 import { useApiResource } from '../api';
 
 function Activities() {
-  const { items: activities, apiUrl, loading, error } = useApiResource('activities');
+  const apiEndpoint = import.meta.env.VITE_CODESPACE_NAME
+    ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+    : 'http://localhost:8000/api/activities/';
+
+  const { items: activities, apiUrl, loading, error } = useApiResource(apiEndpoint, 'activities');
 
   return (
     <section className="page">

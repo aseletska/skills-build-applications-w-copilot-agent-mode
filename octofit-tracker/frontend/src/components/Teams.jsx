@@ -1,7 +1,11 @@
 import { useApiResource } from '../api';
 
 function Teams() {
-  const { items: teams, apiUrl, loading, error } = useApiResource('teams');
+  const apiEndpoint = import.meta.env.VITE_CODESPACE_NAME
+    ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/teams/`
+    : 'http://localhost:8000/api/teams/';
+
+  const { items: teams, apiUrl, loading, error } = useApiResource(apiEndpoint, 'teams');
 
   return (
     <section className="page">
