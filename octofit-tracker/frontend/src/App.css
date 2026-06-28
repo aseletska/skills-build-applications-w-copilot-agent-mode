@@ -1,0 +1,98 @@
+.app {
+  min-height: 100vh;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+.app-header {
+  background: #111827;
+  color: white;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+.app-header p {
+  margin: 8px 0 24px;
+  color: #d1d5db;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  background: #374151;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.nav a.active,
+.nav a:hover {
+  background: #22c55e;
+  color: #052e16;
+}
+
+.content {
+  width: min(1100px, calc(100% - 32px));
+  margin: 32px auto;
+}
+
+.page h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.api-url {
+  font-size: 14px;
+  color: #4b5563;
+  background: #e5e7eb;
+  padding: 10px 12px;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.error {
+  color: #b91c1c;
+  background: #fee2e2;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #111827;
+}
+
+.card p {
+  margin: 8px 0;
+}
+
+.card ul {
+  padding-left: 20px;
+}
