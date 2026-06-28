@@ -3,20 +3,21 @@ import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 
-import User from './models/user';
-import Team from './models/team';
-import Activity from './models/activity';
-import Leaderboard from './models/leaderboard';
-import Workout from './models/workout';
+import User from './models/user.js';
+import Team from './models/team.js';
+import Activity from './models/activity.js';
+import Leaderboard from './models/leaderboard.js';
+import Workout from './models/workout.js';
 
 dotenv.config();
 
 const app = express();
 const port = Number(process.env.PORT ?? 8000);
+const host = '0.0.0.0';
 const mongoUri = process.env.MONGODB_URI ?? 'mongodb://127.0.0.1:27017/octofit_db';
 const codespaceName = process.env.CODESPACE_NAME;
 const apiBaseUrl = codespaceName
-  ? `https://${codespaceName}-8000.app.github.dev`
+  ? `https://${codespaceName}-${port}.app.github.dev`
   : `http://localhost:${port}`;
 
 const users = [
@@ -195,7 +196,7 @@ void mongoose
     console.error('MongoDB connection failed:', error);
   });
 
-app.listen(port, () => {
-  console.log(`Backend listening on port ${port}`);
+app.listen(port, host, () => {
+  console.log(`Backend listening on ${host}:${port}`);
   console.log(`API base URL: ${apiBaseUrl}`);
 });

@@ -7,11 +7,13 @@
 
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import User from '../models/user';
-import Team from '../models/team';
-import Activity from '../models/activity';
-import Leaderboard from '../models/leaderboard';
-import Workout from '../models/workout';
+
+
+import User from '../models/user.js';
+import Team from '../models/team.js';
+import Activity from '../models/activity.js';
+import Leaderboard from '../models/leaderboard.js';
+import Workout from '../models/workout.js';
 
 dotenv.config();
 
